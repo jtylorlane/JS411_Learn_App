@@ -1,4 +1,5 @@
   const ChildComponent = (props) => {
+    
     const frog = props.frog
     const chicken = props.chicken
     return (
