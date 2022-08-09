@@ -1,10 +1,10 @@
-  const ChildComponent = (props) => {
-    
-    const frog = props.frog
-    const chicken = props.chicken
-    return (
-      <h1>{` ${frog} that tastes like ${chicken}.`}</h1>
-    )
-  }
+import React from "react";
 
-  export default ChildComponent;
+const ChildComponent = (props) => {
+  // const [count, setCount] = useState(0);
+  const frog = props.frog;
+  const chicken = props.chicken;
+  return <h1>{`A ${frog} that tastes like ${chicken}.`}</h1>;
+};
+
+export default ChildComponent;

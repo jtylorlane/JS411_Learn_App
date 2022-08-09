@@ -1,38 +1,38 @@
-import logo from "./logo.svg";
+import React, { Component } from "react";
 import "./App.css";
-import MyFirstClassComponent from "./components/MyFirstClassComponents/index";
-import Layout from "./containers/Layout/index";
-import { ExampleComponent, Hidden } from "./components/FunctionalHooks/index";
+import MyFirstClassComponent from "./components/MyFirstClassComponent/index";
+// import Layout from "./containers/Layout";
+import LayoutFunctional from "./containers/Layout/LayoutFunctional";
+import { ExampleComponent, Hidden } from "./components/FunctionalHook/index";
 import {
   MyfunctionTodos,
   MyCountComponent,
-} from "./components/FunctionalHooks/indexUseEffect";
+} from "./components/FunctionalHook/indexUseEffect";
 import { Button } from "@mui/material";
-// import { ThemeProvider, createMuiTheme, makeStyles } from '@material-ui/core/styles';
-
-
-
-// const theme = createMuiTheme();
-
-// const useStyles = makeStyles((theme) => {
-//   root: {
-//     // some CSS that accesses the theme
-//   }
-// });
+import { Link } from 'react-router-dom';
 
 function App() {
-  const msg = "TRUE";
+  const message = true;
   return (
     <div className="App">
-      <Button variant="text">Text</Button>
-      <Button variant="contained">Contained</Button>
-      <Button variant="outlined">Outlined</Button>
-      <MyCountComponent />
-      <Hidden />
+      <Link to="/dash">Dashboard Page</Link>
+      
+      <Button variant="contained" color="primary">
+        Primary
+      </Button>
+      <Button variant="contained" color="secondary">
+        Secondary
+      </Button>
+      <Button variant="contained" color="primary">
+        Disabled
+      </Button>
+      {/* <MyfunctionTodos/> */}
+      {/* <MyCountComponent /> */}
+      {/* <Hidden/> */}
       <ExampleComponent />
       <MyFirstClassComponent />
-      <MyfunctionTodos />
-      {/* <Layout /> */}
+      <LayoutFunctional />
+      
     </div>
   );
 }

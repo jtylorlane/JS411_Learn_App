@@ -7,38 +7,42 @@ class MyFirstClassComponent extends Component {
   }
 
   handleOnChange = (e) => {
+    //how to change value
     this.setState({
       text: e.target.value,
     });
   };
+
   onClickHandler = (e) => {
-    console.log(this.state.text);
     //populate array of todos with text
-    //.push()
+    console.log(this.state.text);
+    //push()
     const text = this.state.text;
     const newState = [...this.state.todos];
-    console.log(this.state.todos);
+    console.log(newState);
     newState.push(text);
-    console.log("newState", newState);
+    console.log("New state", newState); //["text is here now"]
     //set the state
     this.setState({
       text: "",
-      todos: newState // newstate goes here, how do i annote it, I'm so dumb it was literally just newState
+      todos: newState,
     });
   };
 
   handleClick = (index) => {
-console.log("index", index);
-this.delete();
- }
+    console.log("Index", index);
+    this.delete(index);
+  };
 
- delete = (index) => {
-  console.log("this will be deleted", index);
-  const newTodos = [...this.state.todos]
-  newTodos.splice(index, 1);
-  this.setState({ 
-    todos: newTodos});
- }
+  delete = (index) => {
+    console.log("Thsi is gonna get deleted", index);
+    const newTodos = [...this.state.todos, index];
+    newTodos.splice(index, 1);
+    //update state
+    this.setState({
+      todos: newTodos,
+    });
+  };
 
   render() {
     return (
@@ -46,8 +50,12 @@ this.delete();
         <h1>ToDo</h1>
         <input value={this.state.text} onChange={this.handleOnChange} />
         <p>{this.state.text}</p>
-        <button onClick={this.onClickHandler}>add</button>
-        {this.state.todos.map((item,i) => <li key={i} onClick={() => this.handleClick(i)}>{item}</li>)}
+        <button onClick={this.onClickHandler}>ADD ITEM</button>
+        {this.state.todos.map((item, i) => (
+          <li key={i} onClick={() => this.handleClick(i)}>
+            {item}
+          </li>
+        ))}
       </div>
     );
   }
